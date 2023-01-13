@@ -5,11 +5,12 @@ on:
     branches:
       - master
       - feature/github_actions
+      
+permissions: read-all|write-all
 
 jobs:
   build:
     runs-on: ubuntu-latest
-    permissions: read-all|write-all
     steps:
       - uses: actions/checkout@v2
         with:
