@@ -6,7 +6,7 @@ on:
       - master
       - feature/github_actions
       
-permissions: read-all|write-all
+permissions: write-all
 
 jobs:
   build:
