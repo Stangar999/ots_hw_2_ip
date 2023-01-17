@@ -1,4 +1,4 @@
-#include <cassert>
+﻿#include <cassert>
 #include <cstdlib>
 #include <iostream>
 #include <string>
@@ -16,7 +16,7 @@ std::vector<std::vector<std::string>> ReadInput(std::istream& in) {
         r.emplace_back(split(line, '\t'));
     }
     return r;
-};
+}
 
 int main([[maybe_unused]] int argc, [[maybe_unused]] char const *argv[])
 {
