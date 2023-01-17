@@ -1,4 +1,5 @@
 ﻿cmake_minimum_required(VERSION 3.10)
+set (CMAKE_CXX_STANDARD 20)
 
 set(PATCH_VERSION "1" CACHE INTERNAL "Patch version")
 set(PROJECT_VESRION 0.0.${PATCH_VERSION})
@@ -9,7 +10,10 @@ project(ip_filter VERSION ${PROJECT_VESRION})
 
 configure_file(lib/version_lib/version_define.h.in version_define.h)
 
-add_executable(ip_filter src/main.cpp)
+add_executable(ip_filter src/main.cpp
+    src/data_handler.h
+    src/print.h)
+
 add_library(version lib/version_lib/version.cpp)
 # add_executable(test_version test_version.cpp)
 
