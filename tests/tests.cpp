@@ -8,6 +8,11 @@
 
 using namespace std::literals;
 
+int main([[maybe_unused]] int argc, [[maybe_unused]] char const *argv[])
+{
+    return 0;
+}
+
 //std::vector<std::vector<std::string>> ReadInput(std::istream& in);
 
 //TEST(ReadData, CurrentRead) {
