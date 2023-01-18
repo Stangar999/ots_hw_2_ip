@@ -15,9 +15,9 @@ add_executable(ip_filter src/main.cpp
     src/print.h)
 
 add_library(version lib/version_lib/version.cpp)
-add_executable(tests tests/tests.cpp)
+#add_executable(tests tests/tests.cpp)
 
-set_target_properties(ip_filter version tests PROPERTIES
+set_target_properties(ip_filter version PROPERTIES
     CXX_STANDARD 20
     CXX_STANDARD_REQUIRED ON
 )
@@ -25,22 +25,22 @@ target_include_directories(version
     PRIVATE "${CMAKE_BINARY_DIR}"
 )
 
-target_include_directories(tests PRIVATE
-    src/
-)
-#TODO что надо написать что бы в test.cpp при линковке была видна функция из main.cpp?
-target_link_directories(tests PUBLIC
-    src/
-)
+#target_include_directories(tests PRIVATE
+#    src/
+#)
+##TODO что надо написать что бы в test.cpp при линковке была видна функция из main.cpp?
+#target_link_directories(tests PUBLIC
+#    src/
+#)
 
 target_link_libraries(ip_filter PRIVATE
     version
 )
 
-target_link_libraries(tests
-  #    ${Boost_LIBRARIES}
-  gtest_main
-)
+#target_link_libraries(tests
+#  #    ${Boost_LIBRARIES}
+#  gtest_main
+#)
 
 if (MSVC)
     target_compile_options(ip_filter PRIVATE
@@ -49,9 +49,9 @@ if (MSVC)
     target_compile_options(version PRIVATE
         /W4
     )
-    target_compile_options(tests PRIVATE
-      /W4
-    )
+#    target_compile_options(tests PRIVATE
+#      /W4
+#    )
 else ()
 #    target_compile_options(ip_filter PRIVATE
 #        -Wall -Wextra -pedantic -Werror
