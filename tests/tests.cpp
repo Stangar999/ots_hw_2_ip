@@ -1,10 +1,10 @@
-﻿#include <gtest/gtest.h>
+﻿//#include <gtest/gtest.h>
 #include <vector>
 #include <tuple>
 #include <iostream>
 
-#include "data_handler.h"
-#include "print.h"
+//#include "data_handler.h"
+//#include "print.h"
 
 using namespace std::literals;
 

@@ -4,7 +4,7 @@ set (CMAKE_CXX_STANDARD 20)
 set(PATCH_VERSION "1" CACHE INTERNAL "Patch version")
 set(PROJECT_VESRION 0.0.${PATCH_VERSION})
 
-add_subdirectory("${CMAKE_CURRENT_SOURCE_DIR}/lib/gtest" "googletest")
+add_subdirectory("${CMAKE_CURRENT_SOURCE_DIR}/lib/gtest" "googletest" EXCLUDE_FROM_ALL)
 
 project(ip_filter VERSION ${PROJECT_VESRION})
 
