@@ -15,7 +15,7 @@ add_executable(ip_filter src/main.cpp
     src/print.h)
 
 add_library(version lib/version_lib/version.cpp)
-#add_executable(tests tests/tests.cpp)
+add_executable(tests tests/tests.cpp)
 
 set_target_properties(ip_filter version PROPERTIES
     CXX_STANDARD 20
