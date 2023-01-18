@@ -28,10 +28,9 @@ int main([[maybe_unused]] int argc, [[maybe_unused]] char const *argv[])
         PrintRangesIp(ApplyFilter<it, 0>(std::pair{ip_s.cbegin(), ip_s.cend()}, 1));
         PrintRangesIp(ApplyFilter<it, 0>(std::pair{ip_s.cbegin(), ip_s.cend()}, 46));
         PrintRangesIp(ApplyFilter<it, 1>( ApplyFilter<it, 0>(std::pair{ip_s.cbegin(), ip_s.cend()}, 46),  70 ));
-        //PrintRangesIp(ApplyFilterTwo(std::pair{ip_s.cbegin(), ip_s.cend()}, 46, 70));
         PrintAllValue(ip_s, 46, std::index_sequence<0, 1, 2, 3>{});
 
-        // TODO надо раскомментировать вызов
+        // TODO надо раскомментировать эти вызовы для проявления ошибок
 //        ApplyFilterRang(ip_s, 46);
 //        PrintRangesIp(ApplyFilterTwo(std::pair{ip_s.cbegin(), ip_s.cend()}, 46, 70));
     }
