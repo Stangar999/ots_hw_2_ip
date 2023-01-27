@@ -16,9 +16,9 @@ add_executable(ip_filter src/main.cpp
     src/read_input.h)
 
 add_library(version lib/version_lib/version.cpp)
-add_executable(tests tests/tests.cpp)
+add_executable(ex_tests tests/tests.cpp)
 
-set_target_properties(ip_filter version tests PROPERTIES
+set_target_properties(ip_filter version ex_tests PROPERTIES
     CXX_STANDARD 20
     CXX_STANDARD_REQUIRED ON
 )
@@ -26,7 +26,7 @@ target_include_directories(version
     PRIVATE "${CMAKE_BINARY_DIR}"
 )
 
-target_include_directories(tests PRIVATE
+target_include_directories(ex_tests PRIVATE
     src/
 )
 
@@ -34,7 +34,7 @@ target_link_libraries(ip_filter PRIVATE
     version
 )
 
-target_link_libraries(tests
+target_link_libraries(ex_tests
   #    ${Boost_LIBRARIES}
   gtest_main
 )
@@ -46,7 +46,7 @@ if (MSVC)
     target_compile_options(version PRIVATE
         /W4
     )
-    target_compile_options(tests PRIVATE
+    target_compile_options(ex_tests PRIVATE
       /W4
     )
 else ()
@@ -56,7 +56,7 @@ else ()
     target_compile_options(version PRIVATE
         -Wall -Wextra -pedantic -Werror
     )
-   target_compile_options(tests PRIVATE
+   target_compile_options(ex_tests PRIVATE
        -Wall -Wextra -pedantic -Werror
    )
 endif()
@@ -75,4 +75,4 @@ include(CPack)
 
 enable_testing()
 
-add_test(tests tests)
+add_test(ex_tests tests)
