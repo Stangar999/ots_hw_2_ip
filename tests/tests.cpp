@@ -5,6 +5,7 @@
 
 #include "data_handler.h"
 #include "print.h"
+#include "read_input.h"
 
 using namespace std::literals;
 
@@ -12,13 +13,12 @@ std::vector<std::vector<std::string>> ReadInput(std::istream& in);
 
 TEST(ReadData, CurrentRead) {
   std::stringstream in;
-  in << "0.0.0.0\\tf\\td\\n"s  << "1.2.1.1\\tf\\td\\n"s  << "1.2.1.3\\tf\\td\\n"s;
+  in << "0.0.0.0\tf\td\n"s  << "1.2.1.1\tf\td\n"s  << "1.2.1.3\tf\td\n"s;
   const std::vector<std::vector<std::string>> check = {{"0.0.0.0"s, "f"s, "d"s },
                                                          {"1.2.1.1"s, "f"s, "d"s },
                                                          {"1.2.1.3"s, "f"s, "d"s }};
-  // TODO что надо написать в CmakeLists(как я пологаю) что бы в test.cpp при линковке была видна функция из main.cpp?
-  //const std::vector<std::vector<std::string>> var = ReadInput(in);
-  //ASSERT_EQ(var, check);
+  const std::vector<std::vector<std::string>> var = ReadInput(in);
+  ASSERT_EQ(var, check);
 }
 
 TEST(SelectIp, TestReversResult) {

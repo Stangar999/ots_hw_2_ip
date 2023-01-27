@@ -12,7 +12,8 @@ configure_file(lib/version_lib/version_define.h.in version_define.h)
 
 add_executable(ip_filter src/main.cpp
     src/data_handler.h
-    src/print.h)
+    src/print.h
+    src/read_input.h)
 
 add_library(version lib/version_lib/version.cpp)
 add_executable(tests tests/tests.cpp)
@@ -26,10 +27,6 @@ target_include_directories(version
 )
 
 target_include_directories(tests PRIVATE
-    src/
-)
-#TODO что надо написать что бы в test.cpp при линковке была видна функция из main.cpp?
-target_link_directories(tests PUBLIC
     src/
 )
 

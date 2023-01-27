@@ -1,8 +1,12 @@
-﻿#include <iostream>
+﻿#pragma once
+#include <iostream>
 #include <tuple>
 #include <algorithm>
+#include <ranges>
 
-static void PrintIp(const std::tuple<int, int, int, int>& ip, std::ostream& out = std::cout) {
+
+namespace {
+void PrintIp(const std::tuple<int, int, int, int>& ip, std::ostream& out = std::cout) {
     out << std::get<0>(ip) << "." << std::get<1>(ip) << "." << std::get<2>(ip) << "." << std::get<3>(ip) << '\n';
 }
 
@@ -22,10 +26,19 @@ void PrintRangesIp(std::pair<It, It> p) {
     }
 }
 
+template <std::ranges::input_range R>
+void PrintRangesIp(R&& r) {
+    for (const auto& ip : r)
+    {
+        PrintIp(ip);
+    }
+}
+
 template <typename Cont, typename T, size_t... N>
 void PrintAllValue(const Cont &cont, T val, std::index_sequence<N...>, std::ostream& out = std::cout) {
     std::ranges::for_each(cont, [val, &out](const auto &lth) {
         if ( (... || (std::get<N>(lth) == val)) ){
             PrintIp(lth, out);
         } });
+}
 }
