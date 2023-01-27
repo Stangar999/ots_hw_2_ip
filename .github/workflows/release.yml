@@ -17,7 +17,7 @@ jobs:
           submodules: true
       - run: mkdir build
       - run: cd ./build
-      - run: cmake ./.. -DPATCH_VERSION=${{ github.run_number }}
+      - run: cmake .. -DPATCH_VERSION=${{ github.run_number }}
       - run: cmake --build .
       # - run: cmake --build . --target test
       - run: cmake --build . --target package
